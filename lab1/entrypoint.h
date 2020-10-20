@@ -2,8 +2,8 @@
 // Created by artem on 20.10.2020.
 //
 
-#ifndef MULTITHREADING_MULTMATRIX_H
-#define MULTITHREADING_MULTMATRIX_H
+#ifndef MULTITHREADING_ENTRYPOINT_H
+#define MULTITHREADING_ENTRYPOINT_H
 
 void write_result(int **matrix, int &m, int &n);
 
@@ -23,4 +23,4 @@ void matrix_multiplication(int **A, int **B, int **C, int m, int inner, int n, i
 
 void check_result_correctness();
 
-#endif //MULTITHREADING_MULTMATRIX_H
+#endif //MULTITHREADING_ENTRYPOINT_H

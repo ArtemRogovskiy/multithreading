@@ -2,7 +2,7 @@
 #include <fstream>
 #include <chrono>
 #include <algorithm>
-#include "multmatrix.h"
+#include "entrypoint.h"
 
 int **A;
 int **B;
