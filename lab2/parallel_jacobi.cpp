@@ -2,9 +2,9 @@
 #include <iostream>
 #include <mpi.h>
 
-const double eps = 0.1; ///< желаемая точность
+const double eps = 0.0000000001;
 
-void jacobi(int N, double *A, double *F, double *X, int bloc_size, int rank, double *A_bloc, double *F_bloc,
+void jacobi(int N, double *X, int bloc_size, int rank, double *A_bloc, double *F_bloc,
             double *X_bloc) {
     double *TempX = new double[N];
     double norm; // норма, определяемая как наибольшая разность компонент столбца иксов соседних итераций.
@@ -20,6 +20,7 @@ void jacobi(int N, double *A, double *F, double *X, int bloc_size, int rank, dou
             X_bloc[i] = F_bloc[i];
             int index = i * N;
 
+            // For divided into two parts: before and after diagonal element
             for (int j = 0; j < GlobalRowNo; ++j) {
                 X_bloc[i] -= A_bloc[index + j] * X[j];
             }
@@ -29,6 +30,7 @@ void jacobi(int N, double *A, double *F, double *X, int bloc_size, int rank, dou
             X_bloc[i] /= A_bloc[index + GlobalRowNo];
         }
 
+        // Connect X blocks to X for every process
         MPI_Allgather(X_bloc, bloc_size, MPI_DOUBLE, X,
                       bloc_size, MPI_DOUBLE, MPI_COMM_WORLD);
 
