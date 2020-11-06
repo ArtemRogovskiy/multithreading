@@ -1,0 +1,18 @@
+Pure
+1. compilation:
+mpiCC file_name.cpp
+2. run:
+mpirun -n 3 ./a.out
+
+CLion
+1. File -> Settings -> Build, Execution, Deployment -> Cmake -> Cmake options: -D CMAKE_CXX_COMPILER=/usr/bin/mpiCC
+2. In terminal:
+    cd cmake-build-debug
+    mpirun -n 3 ./multithreading
+
+Clion + edit configuration
+1. As previous
+2. In "Edit Configuration":
+    Executable: path to mpirun ("which mpirun" in terminal)
+    Program Arguments: -n 3 ./multithreading
+    Working Directory: .../cmake-build-debug
