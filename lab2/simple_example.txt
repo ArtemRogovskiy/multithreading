@@ -1,0 +1,16 @@
+coefficients_of_equations.txt:
+3 4
+1 -0.17391 -0.65217 0.17391
+-0.3 1 0.1 0.8
+0.3 0.1 1 1.4
+
+initial_approximations.txt:
+3
+0.17391
+0.8
+1.4
+
+result (1, 1, 1):
+1.00291
+0.999585
+1.00042
